@@ -1,0 +1,458 @@
+
+
+/*********************************************************
+	Colors & Fonts
+*********************************************************/
+
+
+:root {				
+  --bkgrd: 	#F4F1EC;
+  --clay: 	#A0785A; 
+  --sage: 	#B7C4B2;
+  --green: 	#3E4A3F;
+  --pink:	#E6C7C2;
+
+  --charcoal:	#666;
+
+  --softolive:	#7E8C6A;
+  --forrest:	#2F4F3E;
+
+  --font-title: "MonteCarlo", cursive;
+  --font-body:  "Montserrat", sans-serif;
+
+  /** Form typography **/
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.75rem;
+  --fs-xl: 2.5rem;
+  --fs-hero: clamp(2.5rem, 6vw, 5rem);
+}
+
+
+html, body {
+  background-color: var(--bkgrd);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+
+  min-height: 100vh;
+  width: 100%;
+
+  margin: 0;              /* remove auto centering */ 
+  padding: 0;
+  overflow-x: hidden;	/* scrolling bugs */
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;	/* center horizontally */
+
+  width: 100%;
+
+  margin: 0;              /* remove auto centering */
+}
+
+
+section {
+  width: 100%;
+  padding: 60px 20px;
+
+}
+
+
+/* Content Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+a:link {
+  color: var(--charcoal); 
+  text-decoration: none;
+}
+
+
+a:visited {
+  color: var(--charcoal); 
+  text-decoration: none;
+}
+
+footer {
+  font-size: 0.75rem;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  align-items: center;
+  margin: 0;            
+}
+
+/*********************************************************
+	General Headers/Paragraphs
+*********************************************************/
+
+
+h1 {
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-weight: 100;
+  font-family: "MonteCarlo", cursive;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  margin-top: 	 0.5rem;
+}
+
+
+h2 {
+  font-size: clamp(1.15rem, 4vw, 2.75rem);
+  font-weight: 100;
+  font-family: "MonteCarlo", cursive;
+  padding: 1.25rem;
+  margin-bottom: 0.5rem;
+  margin-top: 	 0.5rem;
+
+  line-height: 1;
+  text-align: center;
+  align-items: center;
+}
+
+
+p {
+  font-family: "Montserrat", sans-serif;
+  margin: 0.25rem 0;
+  padding: 0;
+  line-height: 1.15;
+}
+
+
+/** Images:  Prevent images from breaking layouts **/
+img {
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/** Videos **/
+video {
+  max-width:100%;
+  height:auto;
+}
+
+/*********************************************************
+		Nav Links
+*********************************************************/
+
+
+/*
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+
+  width: 100%;			/* Needed with "position: fixed" to pin layer*/
+  top: 0;			/* Needed with "position: fixed" to pin layer*/
+  left: 0;			/* Needed with "position: fixed" to pin layer*/
+  transition: top 0.3s; 	/* Transition effect */
+}
+*/
+
+header.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+
+  width: 100%;
+  top: 0;
+  position: sticky;   /* scrolling feature (prep) */
+  z-index: 1000;      /* layering */
+
+
+  font-family: "Montserrat", sans-serif;
+
+  background-color: transparent;   /* start transparent */
+  transition: 
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.nav.scrolled {
+  background-color: var(--pink);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Class to hide the navbar off-screen by moving it up by its height */
+.navbar-hidden {
+  top: -60px;   /* Adjust value to height of navbar */
+  transform: translateY(-100%);
+  background-color: var(--bkgrd);
+}
+
+
+button {
+  background: var(--pink);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+/*********************************************************
+		Hero
+*********************************************************/
+
+/* Hero becomes container for layering */
+.hero {
+  position: relative;   	/* enables layering */
+  background: var(--bkgrd);
+  min-height: 100vh;
+  padding-bottom: 200px;
+  max-width: none;
+  margin: 0;  
+
+  padding-bottom: 575px;  /* makes room for image */
+}
+
+
+/* Center Main text*/
+.hero-content {
+  position: relative;
+  z-index: 2;			
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 0.25rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Paragraphs */
+p.subtitle, .date {
+  margin: 1.0rem 0;
+}
+
+
+h2.names {
+  margin: 1.0rem 0;
+  line-height: 2.75rem;
+}
+
+
+/* Image */
+.hero-image {
+  position: absolute;
+  z-index: 1;          		/* vertical stacking */
+
+  bottom: 0;          		/* stick to bottom */
+  left: 50%;          		/* move to middle horizontally */
+  transform: translateX(-50%); /* move to left 50% of image's size */
+
+  margin-bottom: 0;
+  max-width: 800px;
+  padding-top: 0;
+}
+
+
+/*********************************************************
+		Modules
+*********************************************************/
+
+/** Intro **/
+.intro {
+  min-height: 55vh;   /* 🔥 instead of height */
+  display: flex;
+  justify-content: center; 
+
+  position: relative;
+  height: 55vh;
+
+  align-items: center;
+  padding: 0.5rem;
+
+  text-align: center;
+
+  overflow: hidden;		/* clip content */
+  background-color: var(--pink);
+}
+
+
+	.intro-content {
+	  position: relative;
+	  z-index: 2;
+
+	  align-items: center;
+	  padding: 50px;
+	}
+
+
+/** Details **/
+section.details {
+  background: var(--bkgrd);
+  display: grid;
+  grid-template-columns: 1fr 1fr; 	/* 2 columns */ 
+  gap: 10px; 
+
+  padding-bottom: 40px;
+  background-color: white;
+}
+
+	.section-details {
+	  max-width: 1100px;
+	  margin: 0 auto;		/* Horizontally center */
+	  text-align: center;
+	 }
+
+
+	.section-details p {
+	  line-height: 1.4;
+	}
+
+
+/** Story **/
+
+.story {
+  padding-top: 40px;
+}
+
+	.story-grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 40px;
+
+	  max-width: 1100px;
+	}
+
+	.section-story {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr; 	/* 2 columns */ 
+	  gap: 10px; 	
+
+	  max-width: 1100px;
+	  text-align: left;	
+	  padding: 1.25rem;	
+	  line-height: 2.15;
+	}
+
+	.section-story p {
+	  line-height: 1.8;
+	}
+
+
+/** RSVP **/
+.rsvp {
+  padding-top: 40px;
+  align-items: center;
+  background-color: white;
+}
+
+form.rsvp-form {
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  gap: 10px;                
+}
+
+
+/*********************************************************
+	Responsiveness (for different platforms)
+*********************************************************/
+
+/* Universal box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Global Layout Container (for Main section) */
+.page{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+
+/*********************************************************
+    MOBILE RESPONSIVE RULES
+*********************************************************/
+
+/*** General Spacing***/
+
+@media (max-width: 768px) {
+
+  section.details {
+    grid-template-columns: 1fr;  /* stack */
+  }
+
+  .section-story {
+    grid-template-columns: 1fr;
+  }
+
+  	h1 {
+  	  font-size: 1.6rem;
+  	}
+
+
+	  h2 {
+	    font-size: 1.3rem;
+	  }
+
+
+	  p {
+	    font-size: 0.95rem;
+	  }
+
+
+  	aside {
+	    float: none;
+	    width: 100%;
+	  }
+
+
+  	section {
+    	  padding: 0 1rem;
+  	}
+
+
+	/** Prevent Smooshed Sidebars (Travel/Journal Pages) **/
+	.journal-layout,
+	.travel-layout {
+	  flex-direction:column;
+	}
+
+  .hero {
+    padding-bottom: 100px;
+  }
+
+  .hero-image {
+    max-width: 90%;
+  }
+}
+
+
+
+
+
